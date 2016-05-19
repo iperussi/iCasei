@@ -1,0 +1,17 @@
+#Mudando o padrão para REJEITAR conexões por default
+
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+
+# Liberando a interface de loopback
+
+iptables -A INPUT -i lo -j ACCEPT
+
+# Liberando portas SSH, WEB e FTP
+
+iptables -A INPUT -p tcp --destination-port 80 -j ACCEPT
+iptables -A INPUT -p tcp --destination-port 443 -j ACCEPT
+iptables -A INPUT -p tcp --destination-port 22 -j ACCEPT
+iptables -A INPUT -p tcp --destination-port 21 -j ACCEPT
+iptables -A INPUT -p tcp --destination-port 20 -j ACCEPT
