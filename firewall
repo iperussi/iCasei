@@ -17,4 +17,4 @@ iptables -A INPUT -p tcp --dport 21 -j ACCEPT
 iptables -A INPUT81 -p tcp --dport 20 -j ACCEPT
 
 #Bloqueando qualquer outra conexão entrante
-iptables -A INPUT -j DROP
+iptables -A INPUT DROP
